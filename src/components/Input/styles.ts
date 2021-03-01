@@ -19,9 +19,7 @@ export const Container = styled.div<ContainerProps>`
 
   margin-top: 1rem;
 
-  /* & + div {
-    margin-top: 39px;
-  } */
+  transition: opacity 0.1s;
 
   ${(props) =>
     props.isFocused &&

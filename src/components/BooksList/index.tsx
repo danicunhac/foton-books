@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { Container } from './styles';
+import { Book, Container } from './styles';
 
-const BooksList = () => {
+const BooksList = ({ books }) => {
   return (
     <Container>
-      <h1>BooksList</h1>
+      {books.map((book) => (
+        <Book>
+          <img src={book.volumeInfo.imageLinks.thumbnail} key={book.id} />
+        </Book>
+      ))}
     </Container>
   );
 };

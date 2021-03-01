@@ -1,13 +1,36 @@
-import React from 'react';
+import { GetServerSideProps } from 'next';
+import React, { useEffect, useState } from 'react';
+import BooksList from '../../../components/BooksList';
+import api from '../../../services/api';
 
 import { Container } from './styles';
 
-const design: React.FC = () => {
+interface Books {
+  books: NodeList;
+}
+
+const Design = ({ books }: Books) => {
+  useEffect(() => {
+    console.log(books);
+  }, []);
+
   return (
     <Container>
-      <h1>design</h1>
+      <BooksList books={books} />
     </Container>
   );
 };
 
-export default design;
+export const getServerSideProps: GetServerSideProps = async () => {
+  const { data } = await api.get(
+    '?q=design&key=AIzaSyCHrX0SWrLb5gDxgXfqGp393bN9951IHpQ'
+  );
+
+  return {
+    props: {
+      books: data.items,
+    },
+  };
+};
+
+export default Design;
