@@ -1,9 +1,9 @@
 import { GetServerSideProps } from 'next';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import BooksList from '../../../components/BooksList';
 import api from '../../../services/api';
 
-import { Container } from './styles';
+import { Wrapper } from '../../../styles/global';
 
 interface Books {
   books: NodeList;
@@ -15,9 +15,9 @@ const Design = ({ books }: Books) => {
   }, []);
 
   return (
-    <Container>
+    <Wrapper>
       <BooksList books={books} />
-    </Container>
+    </Wrapper>
   );
 };
 
