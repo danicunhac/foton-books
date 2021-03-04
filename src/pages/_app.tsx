@@ -1,13 +1,16 @@
 import Header from '../components/Header';
+import { SearchProvider } from '../context/SearchContext';
 import GlobalStyle, { Container, Spoiler } from '../styles/global';
 
 function MyApp({ Component, pageProps }) {
   return (
     <Container>
-      <Header />
-      <Component {...pageProps} />
+      <SearchProvider>
+        <Header />
+        <Component {...pageProps} />
+      </SearchProvider>
       <GlobalStyle />
-      <Spoiler>é sobre as pessoas 💜</Spoiler>
+      <Spoiler>pessoas 💜</Spoiler>
     </Container>
   );
 }

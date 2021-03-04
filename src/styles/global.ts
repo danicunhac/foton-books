@@ -45,10 +45,17 @@ export default createGlobalStyle`
   }
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  overflow-x: hidden;
+`;
 
 export const Spoiler = styled.span`
   position: absolute;
   bottom: 0.5rem;
   right: 0.5rem;
+`;
+
+export const Wrapper = styled.div`
+  max-width: 992px;
+  margin: 0 auto;
 `;

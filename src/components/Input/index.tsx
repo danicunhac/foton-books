@@ -3,9 +3,11 @@ import React, {
   useState,
   useCallback,
   InputHTMLAttributes,
+  useContext,
 } from 'react';
 
 import { IconBaseProps } from 'react-icons/lib';
+import { SearchContext } from '../../context/SearchContext';
 
 import { Container } from './styles';
 
@@ -17,6 +19,10 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 const Input: React.FC<InputProps> = ({ icon: Icon, isVisible }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
+
+  const { handleSearch } = useContext(SearchContext);
+
+  const [searchValue, setSearchValue] = useState('');
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
@@ -33,8 +39,11 @@ const Input: React.FC<InputProps> = ({ icon: Icon, isVisible }) => {
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
           ref={inputRef}
+          onChange={(event) => {
+            setSearchValue(event.target.value);
+          }}
         />
-        {Icon && <Icon size={20} onClick={() => {}} />}
+        {Icon && <Icon onClick={() => handleSearch(searchValue)} size={20} />}
       </Container>
     </>
   );
