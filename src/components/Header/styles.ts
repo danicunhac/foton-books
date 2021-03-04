@@ -19,17 +19,18 @@ export const Container = styled.div`
   border-radius: 0 0 100px 100px;
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
 
+  @media (max-width: 520px) {
+    span {
+      display: none;
+    }
+  }
+
   img {
     width: 32px;
   }
 
   span {
+    font-size: 1rem;
     font-weight: 600;
   }
-`;
-
-export const Form = styled.form`
-  flex: 1;
-  display: flex;
-  justify-content: center;
 `;

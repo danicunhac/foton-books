@@ -4,7 +4,7 @@ import { FiSearch, FiChevronRight } from 'react-icons/fi';
 
 import Input from '../Input';
 
-import { Container, Form, Wrapper } from './styles';
+import { Container, Wrapper } from './styles';
 
 const Header = () => {
   const [showInput, toggleShowInput] = useState(false);
@@ -26,9 +26,7 @@ const Header = () => {
         </Link>
         <FiSearch onClick={() => toggleShowInput(!showInput)} size={20} />
       </Container>
-      <Form>
-        <Input isVisible={showInput} icon={FiChevronRight}></Input>
-      </Form>
+      <Input isVisible={showInput} icon={FiChevronRight}></Input>
     </Wrapper>
   );
 };
