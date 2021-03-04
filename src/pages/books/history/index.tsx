@@ -3,7 +3,7 @@ import React from 'react';
 import BooksList from '../../../components/BooksList';
 import api from '../../../services/api';
 
-import { Container } from './styles';
+import { Wrapper } from '../../../styles/global';
 
 interface Books {
   books: NodeList;
@@ -11,9 +11,9 @@ interface Books {
 
 const History = ({ books }: Books) => {
   return (
-    <Container>
+    <Wrapper>
       <BooksList books={books} />
-    </Container>
+    </Wrapper>
   );
 };
 
